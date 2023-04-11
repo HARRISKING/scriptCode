@@ -1,10 +1,11 @@
 #!/bin/sh
 branch_name=private/qualityManage/master
-merge_target_branch=private/pcTest/master
-isv=192.168.1.200:8087
-controller=192.168.1.200:8086
-signin=192.168.1.200:8088
+merge_target_branch=private/master
 
+# 要修改的ip
+target_ip=10.10.0.119
+# 修改后的ip
+modified_ip=192.168.1.200
 function title {
   echo 
   echo "###############################################################################"
@@ -20,7 +21,7 @@ yes | git checkout -b $branch_name
 yes | git push --set-upstream origin $branch_name
 
 title "修改私有文件中的登录地址"
-gsed -i 's/192.168.42.119:8085/192.168.1.200:8088/g' ~/code/uniubi-wo-controller-web/.umirc.private.ts
+gsed -i "s/$target_ip:8088/$modified_ip:8088/g" ~/code/uniubi-wo-controller-web/.umirc.private.ts
 
 title "提交代码"
 yes | git add .
@@ -39,7 +40,7 @@ yes | git checkout -b $branch_name
 yes | git push --set-upstream origin $branch_name
 
 title "修改私有文件中的登录地址"
-gsed -i 's/192.168.42.119:8085/192.168.1.200:8088/g' ~/code/uniubi-wo-isv-web/.umirc.private.ts
+gsed -i "s/$target_ip:8088/$modified_ip:8088/g" ~/code/uniubi-wo-isv-web/.umirc.private.ts
 
 title "提交代码"
 yes | git add .
@@ -58,7 +59,7 @@ yes | git checkout -b $branch_name
 yes | git push --set-upstream origin $branch_name
 
 title "修改私有文件中的登录地址"
-gsed -i 's/192.168.42.119:8086/192.168.1.200:8086/g' ~/code/wo-developer-signin-web/config/private.env.js
+gsed -i "s/$target_ip:8086/$modified_ip:8086/g" ~/code/wo-developer-signin-web/config/private.env.js
 
 title "提交代码"
 yes | git add .
