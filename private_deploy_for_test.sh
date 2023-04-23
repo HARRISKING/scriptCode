@@ -34,7 +34,7 @@ cd ~/code/uniubi-wo-controller-web
 operateGit
 
 title "修改私有文件中的登录地址"
-gsed -i "s/$target_ip:8088/$modified_ip:8088/g" ~/code/uniubi-wo-controller-web/.umirc.private.ts
+gsed -i "s/$target_ip:8088/$modified_ip:8085/g" ~/code/uniubi-wo-controller-web/.umirc.private.ts
 
 title "提交代码"
 yes | git add .
@@ -51,7 +51,7 @@ cd ~/code/uniubi-wo-isv-web
 operateGit
 
 title "修改私有文件中的登录地址"
-gsed -i "s/$target_ip:8088/$modified_ip:8088/g" ~/code/uniubi-wo-isv-web/.umirc.private.ts
+gsed -i "s/$target_ip:8088/$modified_ip:8085/g" ~/code/uniubi-wo-isv-web/.umirc.private.ts
 
 title "提交代码"
 yes | git add .
