@@ -1,11 +1,19 @@
 #!/bin/sh
+# 部署新的ip私有化项目使用
+
 branch_name=private/qualityManage/master
 merge_target_branch=private/master
 
-# 要修改的ip
+# 要修改的ip 非必要不要改
 target_ip=10.10.0.119
+
 # 修改后的ip
 modified_ip=192.168.1.200
+
+# 要替换的端口
+modifued_sigin_port=8088
+modified_wo_port=8086
+
 function title {
   echo 
   echo "###############################################################################"
@@ -32,7 +40,7 @@ cd ~/code/uniubi-wo-controller-web
 operateGit
 
 title "修改私有文件中的登录地址"
-gsed -i "s/$target_ip:8088/$modified_ip:8088/g" ~/code/uniubi-wo-controller-web/.umirc.private.ts
+gsed -i "s/$target_ip:8088/$modified_ip:$modifued_sigin_port/g" ~/code/uniubi-wo-controller-web/.umirc.private.ts
 
 submitCode
 
@@ -46,7 +54,7 @@ cd ~/code/uniubi-wo-isv-web
 operateGit
 
 title "修改私有文件中的登录地址"
-gsed -i "s/$target_ip:8088/$modified_ip:8088/g" ~/code/uniubi-wo-isv-web/.umirc.private.ts
+gsed -i "s/$target_ip:8088/$modified_ip:$modifued_sigin_port/g" ~/code/uniubi-wo-isv-web/.umirc.private.ts
 
 submitCode
 
@@ -60,7 +68,7 @@ cd ~/code/wo-developer-signin-web
 operateGit
 
 title "修改私有文件中的登录地址"
-gsed -i "s/$target_ip:8086/$modified_ip:8086/g" ~/code/wo-developer-signin-web/config/private.env.js
+gsed -i "s/$target_ip:8086/$modified_ip:$modified_wo_port/g" ~/code/wo-developer-signin-web/config/private.env.js
 
 submitCode
 
