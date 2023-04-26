@@ -1,18 +1,19 @@
 #!/bin/sh
 # 更新已经存在的git仓库项目
 
-branch_name=private/zhongjiaoziguang/master
-merge_target_branch=private/master
-
-# 要修改的ip 非必要不要改
-target_ip=10.10.0.119
+branch_name=private/pcTest/master
 
 # 修改后的ip
-modified_ip=172.31.121.82
+modified_ip=192.168.42.119
 
 # 要替换的端口
-modifued_sigin_port=8080
-modified_wo_port=8081
+modifued_sigin_port=8085
+modified_wo_port=8086
+
+# 要修改的ip 非必要不要改!!!!!
+target_ip=10.10.0.119
+merge_target_branch=private/master
+
 
 function title {
   echo 

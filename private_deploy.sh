@@ -2,10 +2,6 @@
 # 部署新的ip私有化项目使用
 
 branch_name=private/qualityManage/master
-merge_target_branch=private/master
-
-# 要修改的ip 非必要不要改
-target_ip=10.10.0.119
 
 # 修改后的ip
 modified_ip=192.168.1.200
@@ -13,6 +9,11 @@ modified_ip=192.168.1.200
 # 要替换的端口
 modifued_sigin_port=8088
 modified_wo_port=8086
+
+# 要修改的ip 非必要不要改
+target_ip=10.10.0.119
+merge_target_branch=private/master
+
 
 function title {
   echo 
